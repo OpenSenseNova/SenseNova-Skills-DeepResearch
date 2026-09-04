@@ -1,0 +1,19 @@
+version: 1
+id: md-docx
+kind: script
+command: [python, -m, deepresearch_cli.converters.md_docx]
+resources:
+  reference.docx: asset:report-templates/word/reference.docx
+inputs:
+  report:
+    type: report
+    media_type: text/markdown
+    mode: one
+outputs:
+  document:
+    path: report.docx
+    type: report-docx
+    media_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    mode: state
+    primary: true
+validator: [python, -m, deepresearch_cli.node_validators.docx]

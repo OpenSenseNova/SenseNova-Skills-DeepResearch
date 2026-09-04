@@ -1,0 +1,30 @@
+name: Bug report
+description: 报告可复现的问题
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请说明实际行为和预期行为。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本与环境
+      placeholder: "commit/tag, OS, Node.js, Python"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 脱敏日志
+      description: 请删除 token、Cookie、个人路径和敏感数据。

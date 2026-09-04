@@ -1,0 +1,9 @@
+version: 1
+name: huggingface_models
+script: providers/huggingface_models.py
+args: ["{query}", --type, models, --limit, "{limit}"]
+capability: Hugging Face model ecosystem discovery and model metadata.
+query_style: Use a model family, exact model name, or task name; select only when model ecosystem evidence matters.
+result_semantics: Returns model metadata rather than the complete model card or performance proof.
+required_modules: [httpx]
+optional_env: [HF_TOKEN]

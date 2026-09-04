@@ -1,0 +1,18 @@
+version: 1
+name: software_engineering
+description: Open-source projects, implementation details, defects, maintenance signals, and engineering discussions.
+default_operation: ecosystem_and_issues
+source_policy: all_relevant
+max_parallel: 8
+minimum_successful_sources: 1
+total_result_limit: 100
+operations:
+  ecosystem_and_issues:
+    description: Discover implementations and concrete maintenance or failure cases.
+    sources: [github_repositories, github_issues, stackoverflow, hackernews]
+  repository_discovery:
+    description: Discover open-source repositories and project ecosystem metadata.
+    sources: [github_repositories]
+  implementation_problems:
+    description: Find concrete issues, pull requests, engineering questions, and technical discussions.
+    sources: [github_issues, stackoverflow, hackernews]

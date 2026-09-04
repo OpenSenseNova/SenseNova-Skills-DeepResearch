@@ -1,0 +1,17 @@
+version: 1
+id: md-html
+kind: agent
+prompt_bundle_key: MdHtml
+inputs:
+  report:
+    type: report
+    media_type: text/markdown
+    mode: one
+outputs:
+  report:
+    path: report.html
+    type: report
+    media_type: text/html
+    mode: state
+    primary: true
+validator: [python, -m, deepresearch_cli.node_validators.md_html]

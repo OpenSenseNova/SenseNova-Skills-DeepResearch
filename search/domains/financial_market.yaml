@@ -1,0 +1,15 @@
+version: 1
+name: financial_market
+description: Listed entities, securities, market metadata, finance news, and research discovery.
+default_operation: entity_search
+source_policy: all_relevant
+max_parallel: 4
+minimum_successful_sources: 1
+total_result_limit: 60
+operations:
+  entity_search:
+    description: Resolve a ticker, company, fund, index, currency, or other financial instrument and discover related finance material.
+    sources: [finance]
+  company_market_context:
+    description: Discover market-facing company information together with recent official Chinese announcements when applicable.
+    sources: [finance, market_cn]

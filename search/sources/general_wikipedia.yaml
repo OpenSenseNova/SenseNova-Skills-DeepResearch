@@ -1,0 +1,9 @@
+version: 1
+name: general_wikipedia
+script: providers/academic/wikipedia_search.py
+args: ["{query}", --limit, "{limit}"]
+capability: Wikipedia topic and encyclopedia-page discovery for terminology, entities, and background orientation.
+query_style: Use a named concept, person, organization, event, technology, or concise topic phrase.
+result_semantics: Wikipedia is an orientation source; follow its references or another primary source before using material claims.
+max_parallel: 3
+required_modules: [httpx]

@@ -1,0 +1,10 @@
+version: 1
+name: academic_google_scholar
+script: providers/academic/google_scholar_search.py
+args: ["{query}", --limit, "{limit}", --sleep, "2"]
+capability: Low-frequency Google Scholar discovery for broad scholarly coverage and otherwise hard-to-find titles.
+query_style: Use a precise paper title, author, or compact scholarly phrase; avoid broad high-volume queries.
+result_semantics: This HTML route may be blocked or rate limited and is supplementary discovery, not a primary evidence source.
+timeout_seconds: 90
+max_parallel: 1
+required_modules: [httpx, bs4]

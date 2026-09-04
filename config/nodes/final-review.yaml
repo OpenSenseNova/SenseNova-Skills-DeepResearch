@@ -1,0 +1,48 @@
+version: 1
+id: final-review
+kind: agent
+prompt_bundle_key: FinalReview
+repair_on_validation_failure: false
+inputs:
+  report:
+    type: stitched-report
+    media_type: text/markdown
+    mode: one
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: all
+  outline:
+    type: report-outline
+    media_type: application/json
+    mode: one
+  drafts:
+    type: report-draft
+    media_type: text/markdown
+    mode: all
+  supplement-plans:
+    type: supplement-plan
+    media_type: application/json
+    mode: all
+    required: false
+  reviews:
+    type: review
+    media_type: text/markdown
+    mode: all
+    required: false
+  perspectives:
+    type: perspective
+    media_type: text/markdown
+    mode: all
+    required: false
+outputs:
+  review:
+    path: final-review.md
+    type: final-review
+    media_type: text/markdown
+    mode: state
+validator: [python, -m, deepresearch_cli.node_validators.final_review]

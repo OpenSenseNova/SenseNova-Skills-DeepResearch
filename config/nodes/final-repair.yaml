@@ -1,0 +1,33 @@
+version: 1
+id: final-repair
+kind: agent
+prompt_bundle_key: FinalRepair
+repair_on_validation_failure: false
+inputs:
+  repair-task:
+    type: final-repair-task
+    media_type: application/json
+    mode: each
+  task:
+    type: content-task
+    media_type: application/json
+    mode: each
+  review:
+    type: final-review
+    media_type: text/markdown
+    mode: one
+  outline:
+    type: report-outline
+    media_type: application/json
+    mode: one
+  draft:
+    type: report-draft
+    media_type: text/markdown
+    mode: one
+outputs:
+  draft:
+    path: repaired-draft.md
+    type: repaired-report-draft
+    media_type: text/markdown
+    mode: state
+validator: [python, -m, deepresearch_cli.node_validators.final_repair]

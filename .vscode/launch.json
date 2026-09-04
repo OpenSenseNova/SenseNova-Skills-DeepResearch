@@ -1,0 +1,151 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "DeepResearch: Run",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "deepresearch_cli",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "envFile": "${env:HOME}/.hermes/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "${input:query}",
+        "--language",
+        "zh-CN",
+        "--mode",
+        "${input:mode}",
+        "--format",
+        "markdown",
+        "--harness",
+        "hermes",
+        "--node-timeout-seconds",
+        "600",
+        "--progress",
+        "tools",
+        "--runs-dir",
+        "${workspaceFolder}/runs"
+      ]
+    },
+    {
+      "name": "DeepResearch: Doctor",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "deepresearch_cli",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "envFile": "${env:HOME}/.hermes/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "doctor",
+        "--harness",
+        "hermes",
+        "--runs-dir",
+        "${workspaceFolder}/runs",
+        "--json"
+      ]
+    },
+    {
+      "name": "DeepResearch: Resume",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "deepresearch_cli",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "envFile": "${env:HOME}/.hermes/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "resume",
+        "${input:runId}",
+        "--harness",
+        "hermes",
+        "--node-timeout-seconds",
+        "600",
+        "--progress",
+        "tools",
+        "--runs-dir",
+        "${workspaceFolder}/runs"
+      ]
+    },
+    {
+      "name": "DeepResearch: Status",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "deepresearch_cli",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "args": [
+        "status",
+        "${input:runId}",
+        "--runs-dir",
+        "${workspaceFolder}/runs",
+        "--json"
+      ]
+    },
+    {
+      "name": "Tests: Real Hermes acceptance",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "envFile": "${env:HOME}/.hermes/.env",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src",
+        "DEEPRESEARCH_LIVE_HERMES": "1",
+        "DEEPRESEARCH_LIVE_NODE_TIMEOUT": "240"
+      },
+      "args": [
+        "tests/test_live_hermes_acceptance.py",
+        "-m",
+        "live_hermes",
+        "-s",
+        "-vv"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "query",
+      "type": "promptString",
+      "description": "研究问题",
+      "default": "研究 Python 3.14 的正式发布日期"
+    },
+    {
+      "id": "mode",
+      "type": "pickString",
+      "description": "研究档位",
+      "options": [
+        "quick",
+        "normal",
+        "heavy"
+      ],
+      "default": "quick"
+    },
+    {
+      "id": "runId",
+      "type": "promptString",
+      "description": "已有的 run_id"
+    }
+  ]
+}

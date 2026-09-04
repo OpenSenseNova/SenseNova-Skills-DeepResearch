@@ -1,0 +1,9 @@
+version: 1
+name: stackoverflow
+script: providers/stackoverflow.py
+args: ["{query}", --limit, "{limit}"]
+capability: Stack Overflow engineering questions and answer-count/score metadata.
+query_style: Use a short engineering problem phrase and common technical terms.
+result_semantics: Returns question text and metadata, not necessarily the accepted answer body.
+required_modules: [httpx]
+optional_env: [SO_API_KEY]

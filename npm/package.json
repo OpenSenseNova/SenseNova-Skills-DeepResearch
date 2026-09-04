@@ -1,0 +1,38 @@
+{
+  "name": "sensenova-skills-deepresearch",
+  "version": "0.1.0",
+  "description": "npm installer and launcher for the DeepResearch Python CLI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch.git"
+  },
+  "homepage": "https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch#readme",
+  "bugs": {
+    "url": "https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch/issues"
+  },
+  "bin": {
+    "deepresearch": "bin/deepresearch.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "scripts/install.js",
+    "vendor/*.whl",
+    "README.md"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/install.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "deep-research",
+    "hermes",
+    "codex",
+    "claude-code",
+    "cli"
+  ]
+}

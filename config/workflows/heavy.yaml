@@ -1,0 +1,33 @@
+version: 1
+name: heavy
+steps:
+  - scout
+  - plan
+  - research
+  - review
+  - perspective
+  - supplement-planner
+  - research
+  - review
+  - perspective
+  - report-planner
+  - report-writer
+  - stitcher
+  - final-review-diagnostic
+  - final-repair
+  - final-review-recheck
+  - render
+timeouts:
+  scout: 600
+  plan: 600
+  research: 1800
+  review: 600
+  perspective: 600
+  supplement-planner: 600
+  report-planner: 600
+  report-writer: 600
+  final-review-diagnostic: 420
+  final-repair: 420
+  final-review-recheck: 420
+  md-html: 1800
+result: report

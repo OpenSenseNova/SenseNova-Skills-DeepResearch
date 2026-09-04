@@ -1,0 +1,9 @@
+version: 1
+name: twitter
+script: providers/twitter.py
+args: ["{query}", --limit, "{limit}"]
+capability: Current Twitter/X posts and public reactions.
+query_style: Use short names, phrases, hashtags, or event terms.
+result_semantics: Returns post-level search results; availability requires a configured TikHub token.
+required_modules: [httpx]
+required_env: [TIKHUB_TOKEN]

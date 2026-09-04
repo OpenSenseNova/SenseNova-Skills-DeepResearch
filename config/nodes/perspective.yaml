@@ -1,0 +1,23 @@
+version: 1
+id: perspective
+kind: agent
+prompt_bundle_key: Perspective
+prompt_bundle_resources:
+  perspective_feedback.schema.md: perspective_feedback_schema
+inputs:
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: each
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+    required: false
+outputs:
+  perspective:
+    path: perspective.md
+    type: perspective
+    media_type: text/markdown
+    mode: state
+validator: [python, -m, deepresearch_cli.node_validators.perspective]

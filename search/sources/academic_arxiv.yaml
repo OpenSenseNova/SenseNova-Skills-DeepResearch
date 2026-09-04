@@ -1,0 +1,9 @@
+version: 1
+name: academic_arxiv
+script: providers/academic/arxiv_api_search.py
+args: ["{query}", --limit, "{limit}"]
+capability: Official arXiv preprint discovery with abstracts, authors, categories, dates, and paper identifiers.
+query_style: Use concise English technical terms, a paper title, author, or arXiv-oriented subject phrase.
+result_semantics: arXiv records are preprints and may not be peer reviewed; read the paper before using a claim.
+max_parallel: 2
+required_modules: [httpx]

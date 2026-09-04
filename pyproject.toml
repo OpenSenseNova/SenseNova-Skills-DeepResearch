@@ -1,0 +1,126 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepresearch-cli"
+version = "0.1.0"
+description = "A configuration-first runtime for DeepResearch workflows"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "agent-client-protocol==0.9.0",
+  "ddgs==9.15.0",
+  "httpx==0.28.1",
+  "mcp==1.26.0",
+  "psutil>=5.9,<8",
+  "PyYAML>=6.0,<7",
+  "python-dotenv==1.2.2",
+  "starlette==1.0.1",
+  "uvicorn>=0.30,<1",
+  "yfinance>=0.2,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2,<2",
+  "pytest>=8,<10",
+]
+template = [
+  "python-docx>=1.1,<2",
+]
+
+[project.scripts]
+deepresearch = "deepresearch_cli.cli:main"
+deepresearch-search-mcp = "deepresearch_cli.search.mcp_server:main"
+deepresearch-codex-mcp = "deepresearch_cli.search.codex_mcp_wrapper:main"
+
+[tool.setuptools]
+package-dir = {"deepresearch_cli" = "src"}
+packages = [
+  "deepresearch_cli",
+  "deepresearch_cli.config",
+  "deepresearch_cli.converters",
+  "deepresearch_cli.harness",
+  "deepresearch_cli.harness.acp",
+  "deepresearch_cli.harness.codex_acp_bridge",
+  "deepresearch_cli.node_validators",
+  "deepresearch_cli.persistence",
+  "deepresearch_cli.prompting",
+  "deepresearch_cli.search",
+  "deepresearch_cli.search.adapters",
+  "deepresearch_cli.search.registry",
+  "deepresearch_cli.search.results",
+  "deepresearch_cli.web",
+]
+include-package-data = true
+
+[tool.setuptools.data-files]
+"share/deepresearch-cli/config/workflows" = [
+  "config/workflows/*.yaml",
+]
+"share/deepresearch-cli/config/nodes" = [
+  "config/nodes/*.yaml",
+]
+"share/deepresearch-cli/assets/report-templates/pdf" = [
+  "assets/report-templates/pdf/*.typ",
+]
+"share/deepresearch-cli/assets/report-templates/content" = [
+  "assets/report-templates/content/*.yaml",
+]
+"share/deepresearch-cli/assets/report-templates/word" = [
+  "assets/report-templates/word/*.docx",
+]
+"share/deepresearch-cli/assets/web" = [
+  "assets/web/*.html",
+  "assets/web/*.css",
+  "assets/web/*.js",
+]
+"share/deepresearch-cli/docs" = [
+  "docs/*.md",
+]
+"share/deepresearch-cli/search" = [
+  "search/README.md",
+  "search/.env.example",
+]
+"share/deepresearch-cli/search/sources" = [
+  "search/sources/*.yaml",
+]
+"share/deepresearch-cli/search/domains" = [
+  "search/domains/*.yaml",
+]
+"share/deepresearch-cli/search/providers" = [
+  "search/providers/*.py",
+]
+"share/deepresearch-cli/search/providers/academic" = [
+  "search/providers/academic/*.py",
+]
+"share/deepresearch-cli/prompts" = [
+  "prompts/*.md",
+  "prompts/*.json",
+]
+"share/deepresearch-cli/prompts/contracts/schemas" = [
+  "prompts/contracts/schemas/briefing.schema.md",
+  "prompts/contracts/schemas/evidence.schema.md",
+  "prompts/contracts/schemas/outline.schema.md",
+  "prompts/contracts/schemas/perspective_feedback.schema.md",
+  "prompts/contracts/schemas/plan.schema.md",
+  "prompts/contracts/schemas/supplement_plan.schema.md",
+]
+"share/deepresearch-cli/prompts/contracts/validators" = [
+  "prompts/contracts/validators/validate_briefing.py",
+  "prompts/contracts/validators/validate_evidence.py",
+  "prompts/contracts/validators/validate_outline.py",
+  "prompts/contracts/validators/validate_plan.py",
+  "prompts/contracts/validators/validate_supplement_plan.py",
+]
+"share/deepresearch-cli/prompts/contracts/materializers" = [
+  "prompts/contracts/materializers/derive_research_tasks.py",
+  "prompts/contracts/materializers/derive_content_tasks.py",
+]
+"share/deepresearch-cli/prompts/contracts/renderers" = [
+  "prompts/contracts/renderers/prepare_citations.py",
+]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

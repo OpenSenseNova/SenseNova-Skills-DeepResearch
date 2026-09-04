@@ -1,0 +1,10 @@
+version: 1
+name: general_duckduckgo
+script: providers/duckduckgo.py
+args: ["{query}", --limit, "{limit}"]
+capability: Keyless general-web discovery across public sites, official pages, news, reports, and topical documents.
+query_style: Use a focused web query with named entities, dates, document types, or site filters where useful.
+result_semantics: Search results are discovery leads; open the original page and verify material claims before citing them.
+timeout_seconds: 45
+max_parallel: 3
+required_modules: [ddgs]

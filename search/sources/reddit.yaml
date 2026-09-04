@@ -1,0 +1,8 @@
+version: 1
+name: reddit
+script: providers/reddit.py
+args: ["{query}", --limit, "{limit}"]
+capability: English-language product experiences, positive/negative feedback, and workflow discussions.
+query_style: Use a product name plus conversational experience or one concrete problem.
+result_semantics: Posts are community evidence and leads; a 401/403 disables this route for the current MCP session.
+required_modules: [httpx]

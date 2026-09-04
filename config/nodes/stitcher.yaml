@@ -1,0 +1,24 @@
+version: 1
+id: stitcher
+kind: script
+command: [python, -m, deepresearch_cli.stitch_finalize_node]
+inputs:
+  outline:
+    type: report-outline
+    media_type: application/json
+    mode: one
+  drafts:
+    type: report-draft
+    media_type: text/markdown
+    mode: all
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: all
+outputs:
+  stitched:
+    path: stitched.md
+    type: stitched-report
+    media_type: text/markdown
+    mode: state
+validator: [python, -m, deepresearch_cli.node_validators.stitcher]

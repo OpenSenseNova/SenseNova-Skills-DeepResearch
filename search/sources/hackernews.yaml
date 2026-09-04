@@ -1,0 +1,8 @@
+version: 1
+name: hackernews
+script: providers/hackernews.py
+args: ["{query}", --limit, "{limit}"]
+capability: Hacker News stories and discussions about tools, studies, and technical controversies.
+query_style: Use a title-like phrase, named study, organization, tool, or concise claim.
+result_semantics: Community discussion is useful for leads and perspectives, not causal proof.
+required_modules: [httpx]

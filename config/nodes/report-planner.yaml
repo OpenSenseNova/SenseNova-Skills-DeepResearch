@@ -1,0 +1,33 @@
+version: 1
+id: report-planner
+kind: agent
+prompt_bundle_key: ReportPlanner
+prompt_bundle_resources:
+  outline.schema.md: outline_schema
+  validate_outline.py: validate_outline
+  derive_content_tasks.py: derive_content_tasks
+resources:
+  report_templates.yaml: asset:report-templates/content/templates.yaml
+inputs:
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: all
+outputs:
+  outline:
+    path: outline.json
+    type: report-outline
+    media_type: application/json
+    mode: state
+  content-tasks:
+    path: content_units/*.evidence_subset.json
+    type: content-task
+    media_type: application/json
+    mode: batch
+    scope_key: content-unit-id
+materializer: [python, resource:derive_content_tasks.py]
+validator: [python, resource:validate_outline.py, --node-context]

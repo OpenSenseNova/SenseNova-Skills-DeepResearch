@@ -1,0 +1,18 @@
+version: 1
+name: social_community
+description: Public reactions, user experience, product feedback, controversies, and community discussion.
+default_operation: cross_market_discussion
+source_policy: all_relevant
+max_parallel: 8
+minimum_successful_sources: 1
+total_result_limit: 100
+operations:
+  cross_market_discussion:
+    description: Search Chinese and international discussion sources; unavailable authenticated routes fail independently.
+    sources: [reddit, zhihu, twitter, hackernews]
+  chinese_discussion:
+    description: Search Chinese question, article, and technology discussion sources.
+    sources: [zhihu]
+  international_discussion:
+    description: Search English-language community and current public discussion sources.
+    sources: [reddit, twitter, hackernews]

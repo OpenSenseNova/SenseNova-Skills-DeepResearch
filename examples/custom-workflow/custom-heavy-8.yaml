@@ -1,0 +1,19 @@
+version: 1
+name: custom-heavy-8
+steps:
+  - scout
+  - plan
+  - expand-research-plan
+  - research
+  - review
+  - perspective
+  - supplement-planner
+  - research
+  - review
+  - perspective
+  - report-planner
+  - report-writer
+  - stitcher
+  - final-review
+  - render
+result: report

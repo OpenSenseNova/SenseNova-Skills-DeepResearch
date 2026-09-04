@@ -1,0 +1,9 @@
+version: 1
+name: github_repositories
+script: providers/github_repositories.py
+args: ["{query}", --type, repositories, --limit, "{limit}"]
+capability: GitHub repository discovery and ecosystem metadata.
+query_style: Use a project name or 2-6 implementation keywords. Do not put a full research question into GitHub search.
+result_semantics: Repository metadata proves that a project exists; it does not prove its real-world effectiveness.
+required_modules: [httpx]
+optional_env: [GITHUB_TOKEN]

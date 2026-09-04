@@ -1,0 +1,9 @@
+version: 1
+name: zhihu
+script: providers/zhihu.py
+args: ["{query}", --limit, "{limit}"]
+capability: Zhihu questions, answers, articles, people, and video discovery.
+query_style: Use a concise Chinese question, concept, product, or controversy phrase.
+result_semantics: Returns search-result metadata and snippets; authenticated access requires a cookie.
+required_modules: [httpx]
+required_env: [ZHIHU_COOKIE]

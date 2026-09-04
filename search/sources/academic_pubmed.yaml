@@ -1,0 +1,9 @@
+version: 1
+name: academic_pubmed
+script: providers/academic/pubmed_search.py
+args: ["{query}", --limit, "{limit}"]
+capability: PubMed biomedical literature discovery with PMID, abstracts, journal metadata, DOI, and PMC links.
+query_style: Use biomedical entities, intervention, population, outcome, condition, mechanism, or MeSH-like terms.
+result_semantics: PubMed indexes biomedical publications; study design and full text must be checked before accepting a result.
+max_parallel: 2
+required_modules: [httpx]

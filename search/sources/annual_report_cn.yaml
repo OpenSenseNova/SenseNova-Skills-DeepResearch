@@ -1,0 +1,9 @@
+version: 1
+name: annual_report_cn
+script: providers/annual_report_cn.py
+args: [cninfo, "{query}", --page-size, "{limit}"]
+capability: CNINFO annual-report and official disclosure PDF discovery.
+query_style: Use a Chinese company name, stock code, or exact annual-report keyword.
+result_semantics: Returns official report/disclosure candidates; fetch and read the PDF before using facts.
+max_parallel: 1
+optional_env: [YEAR_REPORT_USER_AGENT]

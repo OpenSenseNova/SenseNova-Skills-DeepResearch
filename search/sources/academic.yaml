@@ -1,0 +1,12 @@
+version: 1
+name: academic
+script: providers/academic/search.py
+args: ["{query}", --source, arxiv,semantic,openalex,pubmed, --limit, "{limit}"]
+capability: Cross-disciplinary paper discovery through arXiv, Semantic Scholar, OpenAlex, and PubMed, including abstracts, citation metadata, and biomedical literature.
+query_style: Use concise scholarly keywords with topic, method, metric, population, title, or author. Prefer English terms for international literature.
+result_semantics: One request fans into four public academic APIs. Duplicate records across sub-sources are one paper, not independent evidence.
+result_shape: academic
+item_limit_multiplier: 4
+timeout_seconds: 55
+max_parallel: 1
+required_modules: [httpx]

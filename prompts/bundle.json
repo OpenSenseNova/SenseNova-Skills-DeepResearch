@@ -1,0 +1,35 @@
+{
+  "bundle_id": "deepresearch-basic",
+  "version": "0.9",
+  "assembler_version": "3",
+  "context_schema_version": "3",
+  "nodes": {
+    "Scout": "scout.md",
+    "Plan": "plan.md",
+    "Research": "research.md",
+    "Review": "review.md",
+    "Perspective": "perspective.md",
+    "SupplementPlanner": "supplement-planner.md",
+    "ReportPlanner": "report-planner.md",
+    "ReportWriter": "report-writer.md",
+    "FinalRepair": "final-repair.md",
+    "FinalReview": "final-review.md",
+    "MdHtml": "md-html.md"
+  },
+  "resources": {
+    "briefing_schema": "contracts/schemas/briefing.schema.md",
+    "evidence_schema": "contracts/schemas/evidence.schema.md",
+    "outline_schema": "contracts/schemas/outline.schema.md",
+    "perspective_feedback_schema": "contracts/schemas/perspective_feedback.schema.md",
+    "plan_schema": "contracts/schemas/plan.schema.md",
+    "supplement_plan_schema": "contracts/schemas/supplement_plan.schema.md",
+    "validate_briefing": "contracts/validators/validate_briefing.py",
+    "validate_evidence": "contracts/validators/validate_evidence.py",
+    "validate_outline": "contracts/validators/validate_outline.py",
+    "validate_plan": "contracts/validators/validate_plan.py",
+    "validate_supplement_plan": "contracts/validators/validate_supplement_plan.py",
+    "derive_research_tasks": "contracts/materializers/derive_research_tasks.py",
+    "derive_content_tasks": "contracts/materializers/derive_content_tasks.py",
+    "prepare_citations": "contracts/renderers/prepare_citations.py"
+  }
+}

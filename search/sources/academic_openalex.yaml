@@ -1,0 +1,10 @@
+version: 1
+name: academic_openalex
+script: providers/academic/openalex_search.py
+args: ["{query}", --limit, "{limit}"]
+capability: OpenAlex scholarly work discovery with abstracts, authors, DOI, publication dates, and citation counts.
+query_style: Use concise English scholarly concepts, methods, populations, metrics, titles, or authors.
+result_semantics: OpenAlex records are discovery metadata; DOI or landing-page content must be read before use as evidence.
+max_parallel: 3
+required_modules: [httpx]
+optional_env: [OPENALEX_API_KEY, OPENALEX_MAILTO, CLAWDBOT_EMAIL]

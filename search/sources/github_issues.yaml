@@ -1,0 +1,9 @@
+version: 1
+name: github_issues
+script: providers/github_issues.py
+args: ["{query}", --type, issues, --limit, "{limit}"]
+capability: GitHub issues and pull requests about concrete failures, limits, security, and maintenance.
+query_style: Use a concrete project or product name plus one failure mode.
+result_semantics: Issue reports are cases and leads, not population-level evidence.
+required_modules: [httpx]
+optional_env: [GITHUB_TOKEN]

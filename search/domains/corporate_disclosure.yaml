@@ -1,0 +1,18 @@
+version: 1
+name: corporate_disclosure
+description: Official company filings, annual reports, and listed-company announcements.
+default_operation: company_filings
+source_policy: all_relevant
+max_parallel: 4
+minimum_successful_sources: 1
+total_result_limit: 80
+operations:
+  company_filings:
+    description: Search Chinese and US official disclosure systems; use source-specific queries when company names and tickers differ.
+    sources: [annual_report_cn, annual_report_sec, market_cn]
+  cn_disclosures:
+    description: Search CNINFO annual reports and recent A-share announcements.
+    sources: [annual_report_cn, market_cn]
+  us_filings:
+    description: Search official SEC annual filings using a US ticker.
+    sources: [annual_report_sec]

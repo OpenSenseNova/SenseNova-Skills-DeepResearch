@@ -1,0 +1,9 @@
+version: 1
+name: academic_semantic_scholar
+script: providers/academic/semantic_scholar_search.py
+args: ["{query}", --limit, "{limit}"]
+capability: Semantic Scholar paper discovery with abstracts, author, venue, citation, and open-access metadata.
+query_style: Use concise English research topics, methods, benchmarks, paper titles, or author names.
+result_semantics: Citation metadata helps prioritize papers but is not evidence for substantive claims.
+max_parallel: 2
+required_modules: [httpx]

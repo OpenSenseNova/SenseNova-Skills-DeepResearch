@@ -1,0 +1,28 @@
+version: 1
+id: plan
+kind: agent
+prompt_bundle_key: Plan
+prompt_bundle_resources:
+  plan.schema.md: plan_schema
+  validate_plan.py: validate_plan
+  derive_research_tasks.py: derive_research_tasks
+inputs:
+  briefing:
+    type: briefing
+    media_type: application/json
+    mode: one
+    required: false
+outputs:
+  plan:
+    path: plan.json
+    type: research-plan
+    media_type: application/json
+    mode: state
+  research-tasks:
+    path: research-tasks/*.json
+    type: research-task
+    media_type: application/json
+    mode: batch
+    scope_key: dimension-id
+materializer: [python, resource:derive_research_tasks.py]
+validator: [python, resource:validate_plan.py, --node-context]

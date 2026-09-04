@@ -1,0 +1,18 @@
+version: 1
+name: academic
+description: Scholarly literature, publication identity, abstracts, authors, venues, and citation metadata.
+default_operation: literature_search
+source_policy: all_relevant
+max_parallel: 8
+minimum_successful_sources: 1
+total_result_limit: 120
+operations:
+  literature_search:
+    description: Broad international literature discovery across complementary scholarly indexes and repositories.
+    sources: [academic_openalex, academic_crossref, academic_arxiv, academic_semantic_scholar]
+  biomedical_literature:
+    description: Biomedical and life-science literature discovery with PubMed plus cross-disciplinary indexes.
+    sources: [academic_pubmed, academic_openalex, academic_crossref, academic_semantic_scholar]
+  broad_scholar_search:
+    description: Supplementary broad discovery including the low-frequency Google Scholar route.
+    sources: [academic_openalex, academic_crossref, academic_arxiv, academic_semantic_scholar, academic_google_scholar]

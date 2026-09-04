@@ -1,0 +1,26 @@
+version: 1
+id: expand-research-plan
+kind: script
+command: [python, ./expand_research_plan.py]
+prompt_bundle_resources:
+  formal_validate_plan.py: validate_plan
+inputs:
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+outputs:
+  plan:
+    path: plan.json
+    type: research-plan
+    media_type: application/json
+    mode: state
+  research-tasks:
+    path: research-tasks/*.json
+    type: research-task
+    media_type: application/json
+    mode: batch
+    scope_key: dimension-id
+validators:
+  - [python, resource:formal_validate_plan.py, --node-context]
+  - [python, ./validate_expanded_plan.py]

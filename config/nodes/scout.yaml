@@ -1,0 +1,15 @@
+version: 1
+id: scout
+kind: agent
+prompt_bundle_key: Scout
+prompt_bundle_resources:
+  briefing.schema.md: briefing_schema
+  validate_briefing.py: validate_briefing
+inputs: {}
+outputs:
+  briefing:
+    path: briefing.json
+    type: briefing
+    media_type: application/json
+    mode: state
+validator: [python, resource:validate_briefing.py, --node-context]

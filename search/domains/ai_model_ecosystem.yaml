@@ -1,0 +1,18 @@
+version: 1
+name: ai_model_ecosystem
+description: AI model hubs, open-source implementations, issue reports, and supporting research literature.
+default_operation: model_ecosystem
+source_policy: all_relevant
+max_parallel: 8
+minimum_successful_sources: 1
+total_result_limit: 100
+operations:
+  model_ecosystem:
+    description: Discover model artifacts, repositories, implementation issues, and related scholarly work.
+    sources: [huggingface_models, github_repositories, github_issues, academic_openalex, academic_semantic_scholar]
+  model_discovery:
+    description: Discover model hub entries and related implementations.
+    sources: [huggingface_models, github_repositories]
+  model_limitations:
+    description: Discover implementation issues and technical discussions about a named model or family.
+    sources: [github_issues, stackoverflow, hackernews]

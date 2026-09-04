@@ -1,0 +1,40 @@
+version: 1
+id: supplement-planner
+kind: agent
+prompt_bundle_key: SupplementPlanner
+prompt_bundle_resources:
+  supplement_plan.schema.md: supplement_plan_schema
+  validate_supplement_plan.py: validate_supplement_plan
+  derive_research_tasks.py: derive_research_tasks
+inputs:
+  perspective:
+    type: perspective
+    media_type: text/markdown
+    mode: each
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: one
+  review:
+    type: review
+    media_type: text/markdown
+    mode: one
+outputs:
+  supplement-plan:
+    path: supplement-plan.json
+    type: supplement-plan
+    media_type: application/json
+    mode: state
+  research-tasks:
+    path: research-tasks/*.json
+    type: research-task
+    media_type: application/json
+    mode: batch
+    required: false
+    scope_key: dimension-id
+materializer: [python, resource:derive_research_tasks.py]
+validator: [python, resource:validate_supplement_plan.py, --node-context]

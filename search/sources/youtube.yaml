@@ -1,0 +1,9 @@
+version: 1
+name: youtube
+script: providers/youtube.py
+args: ["{query}", --limit, "{limit}"]
+capability: YouTube videos and channel/video metadata.
+query_style: Use named topics, products, speakers, events, or review phrases.
+result_semantics: Returns video discovery metadata, not a transcript.
+required_modules: [httpx]
+required_env: [YOUTUBE_API_KEY]

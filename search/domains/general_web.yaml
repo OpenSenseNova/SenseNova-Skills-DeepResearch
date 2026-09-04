@@ -1,0 +1,15 @@
+version: 1
+name: general_web
+description: General public-web discovery and topic orientation not covered by a more authoritative specialist domain.
+default_operation: web_search
+source_policy: all_relevant
+max_parallel: 4
+minimum_successful_sources: 1
+total_result_limit: 80
+operations:
+  web_search:
+    description: Search the public web and Wikipedia concurrently for official pages, reports, current material, entities, and background orientation.
+    sources: [general_duckduckgo, general_wikipedia]
+  encyclopedia_search:
+    description: Discover Wikipedia pages for concepts, entities, events, and terminology; this is not full web search.
+    sources: [general_wikipedia]

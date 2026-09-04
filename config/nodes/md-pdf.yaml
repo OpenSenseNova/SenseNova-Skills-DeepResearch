@@ -1,0 +1,19 @@
+version: 1
+id: md-pdf
+kind: script
+command: [python, -m, deepresearch_cli.converters.md_pdf]
+resources:
+  report.typ: asset:report-templates/pdf/report.typ
+inputs:
+  report:
+    type: report
+    media_type: text/markdown
+    mode: one
+outputs:
+  document:
+    path: report.pdf
+    type: report-pdf
+    media_type: application/pdf
+    mode: state
+    primary: true
+validator: [python, -m, deepresearch_cli.node_validators.pdf]

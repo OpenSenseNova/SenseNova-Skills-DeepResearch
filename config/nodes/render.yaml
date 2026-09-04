@@ -1,0 +1,28 @@
+version: 1
+id: render
+kind: script
+command: [python, -m, deepresearch_cli.render_node]
+prompt_bundle_resources:
+  prepare_citations.py: prepare_citations
+inputs:
+  draft:
+    type: report-draft
+    media_type: text/markdown
+    mode: one
+    required: false
+  stitched:
+    type: stitched-report
+    media_type: text/markdown
+    mode: all
+    required: false
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: all
+outputs:
+  report:
+    path: report.md
+    type: report
+    media_type: text/markdown
+    mode: state
+    primary: true

@@ -1,0 +1,21 @@
+version: 1
+id: review
+kind: agent
+prompt_bundle_key: Review
+inputs:
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: each
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+    required: false
+outputs:
+  review:
+    path: review.md
+    type: review
+    media_type: text/markdown
+    mode: state
+validator: [python, -m, deepresearch_cli.node_validators.review]

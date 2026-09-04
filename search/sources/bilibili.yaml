@@ -1,0 +1,9 @@
+version: 1
+name: bilibili
+script: providers/bilibili.py
+args: ["{query}", --limit, "{limit}"]
+capability: Bilibili video/article discovery and engagement metadata.
+query_style: Use concise Chinese topic, product, creator, or review terms.
+result_semantics: Returns discovery metadata and snippets; a cookie may improve availability.
+required_modules: [httpx]
+optional_env: [BILIBILI_COOKIE]

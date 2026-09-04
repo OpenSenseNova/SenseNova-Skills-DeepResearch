@@ -1,0 +1,28 @@
+version: 1
+id: report-writer
+kind: agent
+prompt_bundle_key: ReportWriter
+resources:
+  report_templates.yaml: asset:report-templates/content/templates.yaml
+inputs:
+  task:
+    type: content-task
+    media_type: application/json
+    mode: each
+    required: false
+  outline:
+    type: report-outline
+    media_type: application/json
+    mode: one
+    required: false
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: all
+outputs:
+  draft:
+    path: draft.md
+    type: report-draft
+    media_type: text/markdown
+    mode: state
+validator: [python, -m, deepresearch_cli.node_validators.report_writer]

@@ -1,0 +1,18 @@
+version: 1
+name: video_media
+description: Video, presentation, demonstration, review, creator, and engagement-metadata discovery.
+default_operation: cross_platform_video
+source_policy: all_relevant
+max_parallel: 6
+minimum_successful_sources: 1
+total_result_limit: 80
+operations:
+  cross_platform_video:
+    description: Discover videos across Chinese and international platforms.
+    sources: [youtube, bilibili, douyin]
+  chinese_video:
+    description: Discover Chinese long-form and short-form video candidates.
+    sources: [bilibili, douyin]
+  international_video:
+    description: Discover YouTube videos, channels, presentations, and reviews.
+    sources: [youtube]

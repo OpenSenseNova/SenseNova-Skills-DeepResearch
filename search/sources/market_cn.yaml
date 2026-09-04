@@ -1,0 +1,9 @@
+version: 1
+name: market_cn
+script: providers/market_cn.py
+args: [cninfo-announcements, --keyword, "{query}", --page-size, "{limit}", --timeout, "30"]
+capability: CNINFO A-share announcement discovery for Chinese market and company research.
+query_style: Use a Chinese disclosure-title or full-text keyword; this route defaults to the recent disclosure window.
+result_semantics: Returns official announcement metadata and document URLs from CNINFO.
+result_shape: market_cn
+max_parallel: 1

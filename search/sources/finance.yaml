@@ -1,0 +1,9 @@
+version: 1
+name: finance
+script: providers/finance.py
+args: [yf-search, "{query}", --limit, "{limit}", --news-count, "{limit}", --include-research, --timeout, "30"]
+capability: Yahoo Finance symbol, company, news, and research discovery.
+query_style: Use a ticker, exact company name, fund, index, or security name.
+result_semantics: Search discovers financial entities and related items; use dedicated primary filings for audited facts.
+result_shape: finance
+required_modules: [yfinance]

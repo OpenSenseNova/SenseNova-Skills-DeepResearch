@@ -1,0 +1,9 @@
+version: 1
+name: douyin
+script: providers/douyin.py
+args: ["{query}", --limit, "{limit}"]
+capability: Douyin video discovery and engagement metadata.
+query_style: Use short Chinese product, person, event, or trend phrases.
+result_semantics: Returns video discovery metadata; authenticated access requires a cookie.
+required_modules: [httpx]
+required_env: [DOUYIN_COOKIE]

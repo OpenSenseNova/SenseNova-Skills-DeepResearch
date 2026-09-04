@@ -1,0 +1,11 @@
+version: 1
+name: quick
+steps:
+  - research
+  - report-writer
+  - render
+timeouts:
+  research: 1800
+  report-writer: 300
+  md-html: 900
+result: report

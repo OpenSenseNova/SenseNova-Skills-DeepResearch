@@ -1,0 +1,45 @@
+version: 1
+id: research
+kind: agent
+prompt_bundle_key: Research
+prompt_bundle_resources:
+  evidence.schema.md: evidence_schema
+  supplement_plan.schema.md: supplement_plan_schema
+  validate_evidence.py: validate_evidence
+  validate_supplement_plan.py: validate_supplement_plan
+inputs:
+  task:
+    type: research-task
+    media_type: application/json
+    mode: each
+    required: false
+  plan:
+    type: research-plan
+    media_type: application/json
+    mode: one
+    required: false
+  evidence:
+    type: evidence
+    media_type: application/json
+    mode: one
+    required: false
+  supplement-plan:
+    type: supplement-plan
+    media_type: application/json
+    mode: one
+    required: false
+outputs:
+  evidence:
+    path: evidence.json
+    type: evidence
+    media_type: application/json
+    mode: state
+  completed-supplement-plan:
+    path: supplement-plan.completed.json
+    type: supplement-plan
+    media_type: application/json
+    mode: state
+    required: false
+validators:
+  - [python, resource:validate_evidence.py, --node-context]
+  - [python, resource:validate_supplement_plan.py, --node-context]
