@@ -15,7 +15,7 @@ dependencies = [
   "mcp==1.26.0",
   "psutil>=5.9,<8",
   "PyYAML>=6.0,<7",
-  "python-dotenv==1.2.2",
+  "python-dotenv==1.2.3",
   "starlette==1.0.1",
   "uvicorn>=0.30,<1",
   "yfinance>=0.2,<1",
