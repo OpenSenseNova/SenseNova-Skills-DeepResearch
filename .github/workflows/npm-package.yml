@@ -83,7 +83,7 @@ jobs:
         run: |
           npm install --global --prefix "${RUNNER_TEMP}/npm-prefix" ./dist/*.tgz
           "${RUNNER_TEMP}/npm-prefix/bin/deepresearch" --help
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: deepresearch-npm-package
           path: |
