@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- Publish the prebuilt npm installation path for end users.
+- Add Markdown report preview to the Web console.
+- Align CI, Agent support documentation, and test coverage guidance.
+
 ## 0.1.0
 
 - Establish the first identifiable package version without creating a GitHub Release.

@@ -2,7 +2,20 @@
 
 这个 npm 格式的安装包是 SenseNova-Skills-DeepResearch 的安装和命令转发层。包内自带版本一致的 Python
 wheel；安装时在用户目录创建独立虚拟环境，不修改系统 Python，也不把 Python 依赖安装进项目目录。
-当前安装方式是从 [GitHub 仓库](https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch)源码构建本地包。
+维护者在发布侧构建并发布 npm 包；普通用户不需要 clone 源码或本地构建。
+
+## 用户安装
+
+```bash
+npm install --global sensenova-skills-deepresearch
+deepresearch --help
+```
+
+升级到最新版本：
+
+```bash
+npm install --global sensenova-skills-deepresearch@latest
+```
 
 ## 环境要求
 
@@ -11,9 +24,7 @@ wheel；安装时在用户目录创建独立虚拟环境，不修改系统 Pytho
 - 安装 Python wheel 依赖时可以访问 Python Package Index；
 - 使用 Hermes、Codex、Claude Code 或 OpenClaw 时，相应 Harness 已安装并配置。
 
-如果 Python 不在标准 PATH 中，可以在安装前指定。源码仓库根目录优先使用
-`bash scripts/install.sh`；更新已检出的干净工作区使用 `bash scripts/update.sh`。
-手动构建流程如下：
+维护者本地构建流程如下（用户无需执行）：
 
 ```bash
 export DEEPRESEARCH_PYTHON=/path/to/python3
@@ -85,9 +96,11 @@ npm install -g ./dist/*.tgz
 deepresearch --help
 ```
 
-如果后续确认 npm scope 属于当前发布账号，可以再发布 scoped package：
+维护者发布新版本时，先确认 Python、npm 和包版本一致，再执行：
 
 ```bash
 npm login
 npm publish ./dist/*.tgz --access public
 ```
+
+也可以使用仓库的 `npm-publish.yml` 工作流，在配置 `NPM_TOKEN` 后通过版本标签发布。
