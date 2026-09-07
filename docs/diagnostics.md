@@ -69,13 +69,13 @@ npm list -g --depth=0
 1. Node.js 必须满足 CLI 安装要求。
 2. Python 必须满足运行要求；自动发现失败时才使用 `DEEPRESEARCH_PYTHON` 指定解释器。
 3. npm 全局包存在但命令不在 `PATH` 时，报告 npm 全局可执行目录问题，不重复安装。
-4. npm 包不存在时，从项目 GitHub Release 的 `.tgz` 安装；不要静默改用其他同名包。
+4. npm 包不存在时，报告 npm 包名和 registry 错误；不要静默改用源码仓库、GitHub Release 或其他同名包。
 5. 安装失败时保留 npm 输出，区分下载失败、Python 发现失败和 wheel 依赖安装失败。
 
 安装或升级属于写操作。取得授权后再执行：
 
 ```bash
-npm install -g <github-release-tgz-url>
+npm install -g sensenova-skills-deepresearch
 deepresearch --help
 ```
 

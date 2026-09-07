@@ -44,16 +44,20 @@ SenseNova-Skills-DeepResearch 用来完成从研究问题到成品报告的完�
 
 ## 安装
 
-### GitHub 源码安装（推荐）
+### npm 安装（推荐）
 
-安装时会在
+直接安装已构建好的 npm 包。安装时会在
 `~/.deepresearch-cli/npm-runtime/<version>/` 创建独立环境，不会修改项目目录或系统 Python：
 
 ```bash
-git clone https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch.git
-cd SenseNova-Skills-DeepResearch
-bash scripts/install.sh
+npm install --global sensenova-skills-deepresearch
 deepresearch --help
+```
+
+升级到最新版本：
+
+```bash
+npm install --global sensenova-skills-deepresearch@latest
 ```
 
 如果安装程序没有找到合适的 Python，可以提前指定：
@@ -65,7 +69,7 @@ export DEEPRESEARCH_PYTHON=/path/to/python3
 源码更新后，在仓库根目录执行 `bash scripts/update.sh`。脚本只重建并重新安装当前检出的代码，
 不会自动拉取 Git、删除运行记录或改写 `~/.deepresearch-cli/` 配置；工作区有未提交修改时会停止。
 
-### 从源码构建
+### 从源码构建（仅维护者）
 
 ```bash
 git clone https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch.git

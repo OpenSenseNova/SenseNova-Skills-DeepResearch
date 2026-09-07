@@ -52,16 +52,21 @@ Key capabilities:
 
 ## Install
 
-### Install from GitHub source
+### Install from npm (recommended)
 
-Installation creates an isolated runtime under `~/.deepresearch-cli/npm-runtime/<version>/` and does
-not modify the project directory or the system Python environment.
+Install the prebuilt npm package. Installation creates an isolated runtime under
+`~/.deepresearch-cli/npm-runtime/<version>/` and does not modify the project directory or the system
+Python environment.
 
 ```bash
-git clone https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch.git
-cd SenseNova-Skills-DeepResearch
-bash scripts/install.sh
+npm install --global sensenova-skills-deepresearch
 deepresearch --help
+```
+
+To upgrade to the latest version:
+
+```bash
+npm install --global sensenova-skills-deepresearch@latest
 ```
 
 If Python cannot be discovered automatically, set it before installation:
@@ -70,10 +75,10 @@ If Python cannot be discovered automatically, set it before installation:
 export DEEPRESEARCH_PYTHON=/path/to/python3
 ```
 
-After pulling or switching to a clean checkout, run `bash scripts/update.sh` to rebuild and reinstall.
-It does not modify Git history, delete runs or outputs, or rewrite `~/.deepresearch-cli/` configuration.
+The package publisher builds the Python wheel and npm tarball before publication; ordinary users do not
+need to clone the repository or build locally.
 
-### Build from source
+### Build from source (maintainers only)
 
 ```bash
 git clone https://github.com/OpenSenseNova/SenseNova-Skills-DeepResearch.git
@@ -157,7 +162,7 @@ deepresearch web
 Open <http://127.0.0.1:8765> to create runs and view workflow progress, active stages, source counts,
 writing status, and activity. The page rebuilds its state from persisted run data after refresh.
 
-![Web research progress dashboard](assets/web-demo.jpeg)
+![Web research progress dashboard](assets/web-demo.png)
 
 Start the dashboard and a research run together:
 
